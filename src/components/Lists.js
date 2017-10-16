@@ -6,7 +6,7 @@ import tasks from './data/data.json';
 class Lists extends Component {
 
   state = {
-    tasks: []
+    tasks: {}
   }
 
   componentWillMount() {
@@ -16,10 +16,16 @@ class Lists extends Component {
   }
 
   render() {
+    let tasks = this.state.tasks;
+
+    let lists = tasks.map((list, index) => {
+      return <List key={index} board={list["board"]}/>
+    });
+
     return (
       <div className="lists">
 
-        <List />
+        {lists}
 
       </div>
     );

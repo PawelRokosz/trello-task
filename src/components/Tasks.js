@@ -7,7 +7,7 @@ class Tasks extends Component {
     return (
       <div className="lists__tasks">
 
-        <Task />
+        <Task task={this.props.task} />
 
       </div>
     );

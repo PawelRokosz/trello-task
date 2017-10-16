@@ -7,9 +7,9 @@ class List extends Component {
   render() {
     return (
       <div className="lists__list">
-        <h3 className="lists__title">Basics</h3>
+        <h3 className="lists__title">{this.props.board}</h3>
 
-        <Tasks/>
+        <Tasks task={this.props.task}/>
 
         <div className="lists__add-task">Add a card...</div>
       </div>

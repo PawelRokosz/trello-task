@@ -19,7 +19,7 @@ class Lists extends Component {
     let tasks = this.state.tasks;
 
     let lists = tasks.map((list, index) => {
-      return <List key={index} board={list["board"]}/>
+      return <List key={index} board={list["board"]} tasks={list["tasks"]}/>
     });
 
     return (

@@ -46,6 +46,7 @@ body {
     margin-top: 10px; }
   .lists__task {
     padding: 8px;
+    margin-bottom: 10px;
     border-radius: 2px;
     background: white;
     box-shadow: 1px 1px 1px 0px #706c70;

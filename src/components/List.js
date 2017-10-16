@@ -9,7 +9,7 @@ class List extends Component {
       <div className="lists__list">
         <h3 className="lists__title">{this.props.board}</h3>
 
-        <Tasks task={this.props.task}/>
+        <Tasks tasks={this.props.tasks}/>
 
         <div className="lists__add-task">Add a card...</div>
       </div>

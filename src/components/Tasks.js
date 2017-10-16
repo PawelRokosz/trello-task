@@ -4,10 +4,17 @@ import Task from './Task'
 
 class Tasks extends Component {
   render() {
+    let tasks = this.props.tasks;
+
+    let newTasks = tasks.map((task, index) => {
+      console.log(task);
+      return <Task key={index} task={task.task} />
+    });
+
     return (
       <div className="lists__tasks">
 
-        <Task task={this.props.task} />
+        {newTasks}
 
       </div>
     );

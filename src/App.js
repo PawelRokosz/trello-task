@@ -10,8 +10,8 @@ class App extends Component {
       <div className="app">
         <h2 className="board-title">Welcome Borad</h2>
 
-        <Lists/>
-        
+        <Lists />
+
   		</div>
     );
   }

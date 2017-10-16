@@ -41,7 +41,8 @@ body {
     margin-right: 10px;
     padding: 10px;
     border-radius: 3px;
-    background-color: #E2E4E6; }
+    background-color: #E2E4E6;
+    cursor: pointer; }
   .lists__tasks {
     margin-top: 10px; }
   .lists__task {
@@ -64,3 +65,17 @@ body {
     .lists__add-task:hover {
       background-color: #CDD2D4;
       text-decoration: underline; }
+
+.drag {
+  opacity: 0.5; }
+
+.over {
+  transform: scale(1.1); }
+
+[draggable] {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -khtml-user-drag: element;
+  -webkit-user-drag: element; }

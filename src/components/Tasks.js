@@ -7,7 +7,7 @@ class Tasks extends Component {
     let tasks = this.props.tasks;
 
     let newTasks = tasks.map((task, index) => {
-      return <Task key={index} task={task.task} />
+      return <Task key={index} id={tasks[index].id} board={this.props.board} task={task.task} />
     });
 
     return (

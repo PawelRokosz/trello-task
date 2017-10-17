@@ -6,7 +6,7 @@ import tasks from './data/data.json';
 class Lists extends Component {
 
   state = {
-    tasks: {}
+    tasks: []
   }
 
   componentWillMount() {

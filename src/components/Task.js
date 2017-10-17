@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 
 class Task extends Component {
-  state = {
-    currentTask: '',
-    dropTask: ''
-  }
 
   handleDrag(e) {
     // console.log('drag');
   }
 
-  changeState(data) {
-    this.setState({
-      currentTask: data
-    });
-  }
-
   handleDragStart(e) {
     e.target.classList.add('drag');
-    this.changeState(e.target.innerHTML);
-    console.log(this.props);
     e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', e.target.innerHTML);
+    e.dataTransfer.setData('text/html', this.props.task);
+    this.props.handleDragStart();
   }
 
   handleDragEnter(e) {
@@ -35,27 +24,23 @@ class Task extends Component {
   handleDragOver(e) {
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
-    // console.log(this.state.currentTask);
     // return false;
   }
 
   handleDrop(e) {
-    // console.log('droped');
-    // console.log(this.state.currentTask);
-    // console.log(this.state.currentTask);
-    // console.log(e.target)
-    // console.log(e.target);
-    // if (this.state.currentTask !== e.target.innerHTML) {
-    //
-    //   e.target.innerHTML = e.dataTransfer.getData('text/html');
-    // }
-    // return false;
+    console.log('droped');
+    this.props.handleDrop();
   }
 
   handleDragEnd(e) {
-    // console.log(this.state.currentTask);
-    // console.log(this.state.dropTask);
+    // console.log('currentTask ', this.state.currentTask);
+    // console.log('dropTask ', this.state.dropTask);
     e.target.classList.remove('drag');
+
+
+    // if (this.state.currentTask !== this.state.dropTask) {
+      // e.target.innerHTML = e.dataTransfer.getData('text/html');
+    // }
   }
 
   render() {

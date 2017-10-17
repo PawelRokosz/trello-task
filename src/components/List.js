@@ -3,12 +3,16 @@ import React, { Component } from 'react';
 import Tasks from './Tasks'
 
 class List extends Component {
+  state = {
+    board: this.props.board
+  }
+
   handleDragStart(id, myTask) {
-    this.props.handleDragStart(id, myTask);
+    this.props.handleDragStart(id, myTask, this.state.board);
   }
 
   handleDrop(id, myTask) {
-    this.props.handleDrop(id, myTask);
+    this.props.handleDrop(id, myTask, this.state.board);
   }
 
   handleDragEnd() {

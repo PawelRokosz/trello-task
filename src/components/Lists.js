@@ -9,35 +9,54 @@ class Lists extends Component {
     tasks: [],
     currentTask: {
       "id": null,
-      "task": ""
+      "task": "",
+      "board": ""
     },
     dropTask: {
       "id": null,
-      "task": ""
+      "task": "",
+      "board": ""
     }
   }
 
-  handleDragStart(id, myTask) {
+  handleDragStart(id, myTask, board) {
     this.setState({
       currentTask: {
         "id": id,
-        "task": myTask
+        "task": myTask,
+        "board": board
       },
     });
   }
 
-  handleDrop(id, myTask) {
+  handleDrop(id, myTask, board) {
     this.setState({
       dropTask: {
         "id": id,
-        "task": myTask
+        "task": myTask,
+        "board": board
       }
     });
   }
 
   handleDragEnd() {
     if (this.state.dropTask.id !== this.state.currentTask.id) {
-      console.log('droppped');
+      tasks.map(task => {
+        let board = task.board;
+        if (board === this.state.currentTask.board) {
+          task.tasks.map(task => {
+            let taskId = task.id;
+            if (taskId === this.state.currentTask.id) {
+
+            let currentBoard = tasks.find((task) => {
+              return task.board === board;
+            })
+            console.log(currentBoard.tasks)
+            console.log(task);
+            }
+          })
+        }
+      });
     }
   }
 
@@ -51,7 +70,7 @@ class Lists extends Component {
     let tasks = this.state.tasks;
 
     let lists = tasks.map((list, index) => {
-      return <List key={index} board={list["board"]} tasks={list["tasks"]} handleDragEnd={() => this.handleDragEnd()} handleDragStart={(id, myTask) => this.handleDragStart(id, myTask)} handleDrop={(id, myTask) => this.handleDrop(id, myTask)}/>
+      return <List key={index} board={list["board"]} tasks={list["tasks"]} handleDragEnd={() => this.handleDragEnd()} handleDragStart={(id, myTask, board) => this.handleDragStart(id, myTask, board)} handleDrop={(id, myTask, board) => this.handleDrop(id, myTask, board)}/>
     });
 
     return (

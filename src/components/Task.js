@@ -2,14 +2,10 @@ import React, { Component } from 'react';
 
 class Task extends Component {
 
-  handleDrag(e) {
-    // console.log('drag');
-  }
-
   handleDragStart(e) {
     e.target.classList.add('drag');
-    e.dataTransfer.effectAllowed = 'move';
-    e.dataTransfer.setData('text/html', this.props.task);
+    // e.dataTransfer.effectAllowed = 'move';
+    // e.dataTransfer.setData('text/html', this.props.task);
     this.props.handleDragStart();
   }
 
@@ -23,7 +19,7 @@ class Task extends Component {
 
   handleDragOver(e) {
     e.preventDefault();
-    e.dataTransfer.dropEffect = 'move';
+    // e.dataTransfer.dropEffect = 'move';
     return false;
   }
 
@@ -40,7 +36,6 @@ class Task extends Component {
   render() {
     return (
       <div className="lists__task" draggable
-        onDrag={(e) => this.handleDrag(e)}
         onDragStart={(e) => this.handleDragStart(e)}
         onDragEnter={(e) => this.handleDragEnter(e)}
         onDragLeave={(e) => this.handleDragLeave(e)}

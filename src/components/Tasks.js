@@ -3,17 +3,6 @@ import React, { Component } from 'react';
 import Task from './Task'
 
 class Tasks extends Component {
-  state = {
-    currentTask: {
-      "id": null,
-      "task": ""
-    },
-    dropTask: {
-      "id": null,
-      "task": ""
-    }
-  }
-
   handleDragStart(id, myTask) {
     this.props.handleDragStart(id, myTask);
   }
@@ -32,7 +21,7 @@ class Tasks extends Component {
     let newTasks = tasks.map((task, index) => {
       let id = tasks[index].id;
       let myTask = task.task
-      return <Task key={index} id={id} board={this.props.board} task={myTask} handleDragEnd={() => this.handleDragEnd()} handleDragStart={() => this.handleDragStart(id, myTask)} handleDrop={() => this.handleDrop(id, myTask)}/>
+      return <Task key={index} id={id} task={myTask} handleDragEnd={() => this.handleDragEnd()} handleDragStart={() => this.handleDragStart(id, myTask)} handleDrop={() => this.handleDrop(id, myTask)}/>
     });
 
     return (

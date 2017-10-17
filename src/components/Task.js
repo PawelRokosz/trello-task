@@ -24,23 +24,17 @@ class Task extends Component {
   handleDragOver(e) {
     e.preventDefault();
     e.dataTransfer.dropEffect = 'move';
-    // return false;
+    return false;
   }
 
   handleDrop(e) {
-    console.log('droped');
     this.props.handleDrop();
+    e.target.classList.remove('over');
   }
 
   handleDragEnd(e) {
-    // console.log('currentTask ', this.state.currentTask);
-    // console.log('dropTask ', this.state.dropTask);
     e.target.classList.remove('drag');
-
-
-    // if (this.state.currentTask !== this.state.dropTask) {
-      // e.target.innerHTML = e.dataTransfer.getData('text/html');
-    // }
+    this.props.handleDragEnd();
   }
 
   render() {

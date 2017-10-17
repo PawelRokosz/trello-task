@@ -22,13 +22,17 @@ class Tasks extends Component {
     this.props.handleDrop(id, myTask);
   }
 
+  handleDragEnd() {
+    this.props.handleDragEnd();
+  }
+
   render() {
     let tasks = this.props.tasks;
 
     let newTasks = tasks.map((task, index) => {
       let id = tasks[index].id;
       let myTask = task.task
-      return <Task key={index} id={id} board={this.props.board} task={myTask} handleDragStart={() => this.handleDragStart(id, myTask)} handleDrop={() => this.handleDrop(id, myTask)}/>
+      return <Task key={index} id={id} board={this.props.board} task={myTask} handleDragEnd={() => this.handleDragEnd()} handleDragStart={() => this.handleDragStart(id, myTask)} handleDrop={() => this.handleDrop(id, myTask)}/>
     });
 
     return (

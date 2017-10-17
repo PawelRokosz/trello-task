@@ -23,8 +23,6 @@ class Lists extends Component {
         "id": id,
         "task": myTask
       },
-    }, () => {
-      console.log(this.state);
     });
   }
 
@@ -34,9 +32,13 @@ class Lists extends Component {
         "id": id,
         "task": myTask
       }
-    }, () => {
-      console.log(this.state);
     });
+  }
+
+  handleDragEnd() {
+    if (this.state.dropTask.id !== this.state.currentTask.id) {
+      console.log('droppped');
+    }
   }
 
   componentWillMount() {
@@ -49,7 +51,7 @@ class Lists extends Component {
     let tasks = this.state.tasks;
 
     let lists = tasks.map((list, index) => {
-      return <List key={index} board={list["board"]} tasks={list["tasks"]} handleDragStart={(id, myTask) => this.handleDragStart(id, myTask)} handleDrop={(id, myTask) => this.handleDrop(id, myTask)}/>
+      return <List key={index} board={list["board"]} tasks={list["tasks"]} handleDragEnd={() => this.handleDragEnd()} handleDragStart={(id, myTask) => this.handleDragStart(id, myTask)} handleDrop={(id, myTask) => this.handleDrop(id, myTask)}/>
     });
 
     return (

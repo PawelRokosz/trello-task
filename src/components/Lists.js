@@ -6,7 +6,37 @@ import tasks from './data/data.json';
 class Lists extends Component {
 
   state = {
-    tasks: []
+    tasks: [],
+    currentTask: {
+      "id": null,
+      "task": ""
+    },
+    dropTask: {
+      "id": null,
+      "task": ""
+    }
+  }
+
+  handleDragStart(id, myTask) {
+    this.setState({
+      currentTask: {
+        "id": id,
+        "task": myTask
+      },
+    }, () => {
+      console.log(this.state);
+    });
+  }
+
+  handleDrop(id, myTask) {
+    this.setState({
+      dropTask: {
+        "id": id,
+        "task": myTask
+      }
+    }, () => {
+      console.log(this.state);
+    });
   }
 
   componentWillMount() {
@@ -19,7 +49,7 @@ class Lists extends Component {
     let tasks = this.state.tasks;
 
     let lists = tasks.map((list, index) => {
-      return <List key={index} board={list["board"]} tasks={list["tasks"]}/>
+      return <List key={index} board={list["board"]} tasks={list["tasks"]} handleDragStart={(id, myTask) => this.handleDragStart(id, myTask)} handleDrop={(id, myTask) => this.handleDrop(id, myTask)}/>
     });
 
     return (

@@ -15,25 +15,11 @@ class Tasks extends Component {
   }
 
   handleDragStart(id, myTask) {
-    this.setState({
-      currentTask: {
-        "id": id,
-        "task": myTask
-      },
-    }, () => {
-      console.log(this.state);
-    });
+    this.props.handleDragStart(id, myTask);
   }
 
   handleDrop(id, myTask) {
-    this.setState({
-      dropTask: {
-        "id": id,
-        "task": myTask
-      }
-    }, () => {
-      console.log(this.state);
-    });
+    this.props.handleDrop(id, myTask);
   }
 
   render() {
